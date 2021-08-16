@@ -2,9 +2,9 @@
 
 ## Docker in production (50 points)
 
-Given the Linkup game https://drive.google.com/file/d/1FPyinDVS8lxk7tRp998N_rJ8PgvqhhEv/view?usp=sharing
-Put the game in a container using docker-compose.yml and push ALL the images to your personal docker hub account.
-Add telemetry in your docker-compose using the ff:
+Given the Linkup game https://drive.google.com/file/d/1FPyinDVS8lxk7tRp998N_rJ8PgvqhhEv/view?usp=sharing  
+Put the game in a container using docker-compose.yml and push ALL the images to your personal docker hub account.  
+Add telemetry in your docker-compose using the ff:  
 
 * prometheus
 * alertmanager
@@ -30,7 +30,6 @@ Check your docker-compose.yml file using https://www.docker.com/play-with-docker
   * (yourname)-master
   * (yourname)-worker
 * for each node, edit /root/.bashrc to contain:
-
 
 ```
 HISTSIZE=1000000
