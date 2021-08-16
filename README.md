@@ -24,11 +24,12 @@ Submit the ff files through email:
 Optional:
 Check your docker-compose.yml file using https://www.docker.com/play-with-docker Lab
 
-## kubernetes
+## kubernetes (50 points)
 
 * you are allocated 2 servers. Change the hostnames of both servers to:
   * (yourname)-master
   * (yourname)-worker
+* you will receive the server information and credentials via pm.
 * for each node, edit /root/.bashrc to contain:
 
 ```
@@ -52,10 +53,10 @@ echo "KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs" > /etc/sysconfig/kubelet
 kubeadm reset --force; rm -rf /etc/cni/net.d/
 ```
 
-* on the newly created cluster, create your namespace called (yourname)
+* on the newly created cluster, create your own namespace called (yourname)
 * on the master node in the /root directory, clone the git repository https://github.com/microservices-demo/microservices-demo
 * edit deploy/kubernetes/complete-demo.yaml - ensure that all resources are going to be created under your namespace
-
+  * example:
 ```
 apiVersion: v1
 kind: Namespace
@@ -64,5 +65,9 @@ metadata:
 ...
 namespace: sock-shop <-- replace all occurences to (yourname)
 ```
-* apply the modified deploy/kubernetes/complete-demo.yaml file.
-* ensure that your application is accesible from http://(public ip):(service port). run `kubectl get service --namespace (yourname)` to check the service port of the microservice called *frontend*
+
+* apply the modified deploy/kubernetes/complete-demo.yaml file. 
+* check the status of the services. [take note of the service called *front-end*](https://user-images.githubusercontent.com/87228894/129575405-b1826c76-5f49-4f5a-86df-9f2a8be0c8de.png)
+* it is possible that not all of the microservices are going to run. Atleast ensure that [*front-end* is running](https://imgur.com/n5luwkY). Bonus 10 points if you can get all services to run.
+* ensure that your application is accesible from http://(public ip):(service port). run `kubectl get service --namespace (yourname)` to check the service port of the microservice called *front-end*
+* you should be able to browse the application [like this](https://imgur.com/6kq0bcT)
