@@ -29,7 +29,9 @@ Check your docker-compose.yml file using https://www.docker.com/play-with-docker
 * you are allocated 2 servers. Change the hostnames of both servers to:
   * (yourname)-master
   * (yourname)-worker
-* you will receive the server information and credentials via pm.
+* you will receive the server information via pm. ssh keys can be obtained [here](https://docs.google.com/document/d/1HrGmvpiFAzZSaQRGeoVLOe7PQVbqnpAzrHDN_OssvqQ/edit)
+  * take note that you are given *public ip addresses*. You'll only use this to ssh and to access the microservices application via browser
+  * if you need to add any IP addresses to /etc/hosts, add the *private IP addresses*. You can obtain this by running *ifconfig* or *ip a*
 * for each node, edit /root/.bashrc to contain:
 
 ```
@@ -71,3 +73,6 @@ namespace: sock-shop <-- replace all occurences to (yourname)
 * it is possible that not all of the microservices are going to run. Atleast ensure that [*front-end* is running](https://imgur.com/n5luwkY). Bonus 10 points if you can get all services to run.
 * ensure that your application is accesible from http://(public ip):(service port). run `kubectl get service --namespace (yourname)` to check the service port of the microservice called *front-end*
 * you should be able to browse the application [like this](https://imgur.com/6kq0bcT)
+
+## NOTE
+* the servers will only be accessible until Aug 18 11PM GMT+8
